@@ -1,0 +1,104 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectSlide from "../components/ProjectSlide.astro";
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <section class="main-slide">
+      <h1>Welcome to <span class="text-gradient">My Page</span></h1>
+    </section>
+    <ProjectSlide
+      href="https://tags-react.vercel.app/"
+      title="Tags React"
+      description="It's my first project with React Functional components. Building it i learned how works useState"
+      imgsrc="./tags_react/index.png"
+    />
+    <ProjectSlide
+      href="https://github.com/CyberCaban/musify"
+      title="Musify"
+      description="Musify is my backend experience with NodeJS, Express, database interaction, user authentication with json web tokens and more."
+      imgsrc="./musify/index.png"
+    />
+    <ProjectSlide
+      href="https://github.com/CyberCaban/Webpack-template"
+      title="Webpack template"
+      description="Webpack config i use for my other projects. It's based on create-react-app config, but lighter"
+      imgsrc="./webpack-template/index.png"
+    />
+    <ProjectSlide
+      href="https://poke-center.vercel.app/"
+      title="Pokemon stats viewer"
+      description=""
+      imgsrc="./poke-center/index.png"
+    />
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 100%;
+    height: auto;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  .astro-a {
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translatex(-50%);
+    width: 220px;
+    height: auto;
+    z-index: -1;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .main-slide {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+  .instructions {
+    margin-bottom: 2rem;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    background: linear-gradient(
+      rgba(var(--accent-dark), 66%),
+      rgba(var(--accent-dark), 33%)
+    );
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  .instructions code {
+    font-size: 0.8em;
+    font-weight: bold;
+    background: rgba(var(--accent-light), 12%);
+    color: rgb(var(--accent-light));
+    border-radius: 4px;
+    padding: 0.3em 0.4em;
+  }
+  .instructions strong {
+    color: rgb(var(--accent-light));
+  }
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 2rem;
+    padding: 0;
+  }
+</style>

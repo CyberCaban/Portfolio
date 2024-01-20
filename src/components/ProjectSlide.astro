@@ -1,0 +1,31 @@
+---
+const { imgsrc, title, description, href } = Astro.props;
+---
+
+<section class="slide">
+  <img src={imgsrc} alt="" class="preview" />
+  <a href={href}>
+    <h2>
+      {title}
+    </h2>
+  </a>
+  <p>
+    {description}
+  </p>
+</section>
+
+<style>
+  .slide {
+    border: 1px solid rgba(var(--accent-light), 25%);
+    border-radius: 30px;
+    padding: 2rem;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .preview {
+    width: 70%;
+    border-radius: 10px;
+  }
+</style>
