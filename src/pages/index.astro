@@ -6,32 +6,35 @@ import ProjectSlide from "../components/ProjectSlide.astro";
 <Layout title="Welcome to Astro.">
   <main>
     <section class="main-slide">
-      <h1>Welcome to <span class="text-gradient">My Page</span></h1>
+      <h1 class="text-gradient firstname">Dmitry</h1>
+      <h1 class="lastname">Konovalov</h1>
     </section>
-    <ProjectSlide
-      href="https://tags-react.vercel.app/"
-      title="Tags React"
-      description="It's my first project with React Functional components. Building it i learned how works useState"
-      imgsrc="./tags_react/index.png"
-    />
-    <ProjectSlide
-      href="https://github.com/CyberCaban/musify"
-      title="Musify"
-      description="Musify is my backend experience with NodeJS, Express, database interaction, user authentication with json web tokens and more."
-      imgsrc="./musify/index.png"
-    />
-    <ProjectSlide
-      href="https://github.com/CyberCaban/Webpack-template"
-      title="Webpack template"
-      description="Webpack config i use for my other projects. It's based on create-react-app config, but lighter"
-      imgsrc="./webpack-template/index.png"
-    />
-    <ProjectSlide
-      href="https://poke-center.vercel.app/"
-      title="Pokemon stats viewer"
-      description=""
-      imgsrc="./poke-center/index.png"
-    />
+    <div class="myProjects">
+      <ProjectSlide
+        href="https://tags-react.vercel.app/"
+        title="Tags React"
+        description="It's my first project with React Functional components. Building it i learned how works useState"
+        imgsrc="./tags_react/index.png"
+      />
+      <ProjectSlide
+        href="https://poke-center.vercel.app/"
+        title="Poke-Center"
+        description="This project taught me how to use useEffect, make API calls and display it on the client."
+        imgsrc="./poke-center/index.png"
+      />
+      <ProjectSlide
+        href="https://github.com/CyberCaban/Webpack-template"
+        title="Webpack template"
+        description="Webpack config i use for my other projects. It's based on create-react-app config, but lighter"
+        imgsrc="./webpack-template/index.png"
+      />
+      <ProjectSlide
+        href="https://github.com/CyberCaban/musify"
+        title="Musify"
+        description="Musify is my backend experience with NodeJS, Express, database interaction, user authentication with json web tokens and more."
+        imgsrc="./musify/index.png"
+      />
+    </div>
   </main>
 </Layout>
 
@@ -45,6 +48,9 @@ import ProjectSlide from "../components/ProjectSlide.astro";
     color: white;
     font-size: 20px;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .astro-a {
     position: absolute;
@@ -60,7 +66,6 @@ import ProjectSlide from "../components/ProjectSlide.astro";
     font-weight: 700;
     line-height: 1;
     text-align: center;
-    margin-bottom: 1em;
   }
   .text-gradient {
     background-image: var(--accent-gradient);
@@ -70,35 +75,29 @@ import ProjectSlide from "../components/ProjectSlide.astro";
     background-position: 0%;
   }
   .main-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
     margin: 0 auto;
+    background-color: var(--accent);
   }
-  .instructions {
-    margin-bottom: 2rem;
-    border: 1px solid rgba(var(--accent-light), 25%);
-    background: linear-gradient(
-      rgba(var(--accent-dark), 66%),
-      rgba(var(--accent-dark), 33%)
-    );
-    padding: 1.5rem;
-    border-radius: 8px;
+  .firstname {
+    position: absolute;
+    left: 0;
+    bottom: 4rem;
   }
-  .instructions code {
-    font-size: 0.8em;
-    font-weight: bold;
-    background: rgba(var(--accent-light), 12%);
-    color: rgb(var(--accent-light));
-    border-radius: 4px;
-    padding: 0.3em 0.4em;
+  .lastname {
+    position: absolute;
+    left: 0;
+    bottom: 0;
   }
-  .instructions strong {
-    color: rgb(var(--accent-light));
-  }
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 2rem;
-    padding: 0;
+  .myProjects {
+    position: absolute;
+    top: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 </style>

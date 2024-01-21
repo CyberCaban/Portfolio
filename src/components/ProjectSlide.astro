@@ -4,22 +4,28 @@ const { imgsrc, title, description, href } = Astro.props;
 
 <section class="slide">
   <img src={imgsrc} alt="" class="preview" />
-  <a href={href}>
-    <h2>
-      {title}
-    </h2>
-  </a>
-  <p>
-    {description}
-  </p>
+  <div class="slide_text">
+    <a href={href}>
+      <h2>
+        {title}
+      </h2>
+    </a>
+    <p>
+      {description}
+    </p>
+  </div>
 </section>
 
 <style>
+  a {
+    color: rgb(88, 177, 255);
+  }
   .slide {
+    width: 60%;
     border: 1px solid rgba(var(--accent-light), 25%);
     border-radius: 30px;
-    padding: 2rem;
-    margin: 2rem;
+    padding: 1rem;
+    margin: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,5 +33,13 @@ const { imgsrc, title, description, href } = Astro.props;
   .preview {
     width: 70%;
     border-radius: 10px;
+  }
+  .slide_text {
+    padding: 1rem;
+  }
+  @media (min-width: 979px) {
+    .slide {
+      flex-direction: row;
+    }
   }
 </style>
