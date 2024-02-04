@@ -1,0 +1,43 @@
+---
+type Props = {
+  header: string;
+};
+const { header } = Astro.props;
+
+const repeatHeader = Array.from(Array(10).keys());
+---
+
+<div class=`${header}`>
+  <h1 class="header">
+    {repeatHeader.map((item) => `${header} `)}
+  </h1>
+  <article class="article">
+    <slot />
+  </article>
+</div>
+
+<style>
+  h1 {
+    font-size: 8rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+  }
+  .header {
+    color: rgb(141, 141, 141);
+    width: 100%;
+    white-space: nowrap;
+    animation: runningText 10s linear infinite;
+  }
+  .article {
+    margin: 20%;
+  }
+  @keyframes runningText {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+</style>

@@ -1,40 +1,70 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ProjectSlide from "../components/ProjectSlide.astro";
+import Slide from "../components/Slide.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="My Portfolio">
   <main>
     <section class="main-slide">
       <h1 class="text-gradient firstname">Dmitry</h1>
       <h1 class="lastname">Konovalov</h1>
+      <div class="scroll_prompt">
+        <h2 class="prompt">SCROLL</h2>
+        <div class="arrow"></div>
+      </div>
     </section>
-    <div class="myProjects">
-      <ProjectSlide
-        href="https://tags-react.vercel.app/"
-        title="Tags React"
-        description="It's my first project with React Functional components. Building it i learned how works useState"
-        imgsrc="./tags_react/index.png"
-      />
-      <ProjectSlide
-        href="https://poke-center.vercel.app/"
-        title="Poke-Center"
-        description="This project taught me how to use useEffect, make API calls and display it on the client."
-        imgsrc="./poke-center/index.png"
-      />
-      <ProjectSlide
-        href="https://github.com/CyberCaban/Webpack-template"
-        title="Webpack template"
-        description="Webpack config i use for my other projects. It's based on create-react-app config, but lighter"
-        imgsrc="./webpack-template/index.png"
-      />
-      <ProjectSlide
-        href="https://github.com/CyberCaban/musify"
-        title="Musify"
-        description="Musify is my backend experience with NodeJS, Express, database interaction, user authentication with json web tokens and more."
-        imgsrc="./musify/index.png"
-      />
-    </div>
+    <section class="slides">
+      <div class="about">
+        <h1 class="header about_header">
+          ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT
+          ABOUT
+        </h1>
+        <article class="about_article">
+          <p>
+            I am Dmitry, a freshman student of Yaroslavl State University,
+            Russia.
+          </p>
+          <ul>
+            <li>Currently i'm learning web dev and all things around it.</li>
+          </ul>
+        </article>
+      </div>
+      <Slide header="lolXD">
+        <p>
+          I am Dmitry, a freshman student of Yaroslavl State University, Russia.
+        </p>
+        <ul>
+          <li>Currently i'm learning web dev and all things around it.</li>
+        </ul>
+      </Slide>
+      <div class="myProjects">
+        <ProjectSlide
+          href="https://tags-react.vercel.app/"
+          title="Tags React"
+          description="It's my first project with React Functional components. Building it i learned how works useState"
+          imgsrc="./tags_react/index.png"
+        />
+        <ProjectSlide
+          href="https://poke-center.vercel.app/"
+          title="Poke-Center"
+          description="This project taught me how to use useEffect, make API calls and display it on the client."
+          imgsrc="./poke-center/index.png"
+        />
+        <ProjectSlide
+          href="https://github.com/CyberCaban/Webpack-template"
+          title="Webpack template"
+          description="Webpack config i use for my other projects. It's based on create-react-app config, but lighter"
+          imgsrc="./webpack-template/index.png"
+        />
+        <ProjectSlide
+          href="https://github.com/CyberCaban/musify"
+          title="Musify"
+          description="Musify is my backend experience with NodeJS, Express, database interaction, user authentication with json web tokens and more."
+          imgsrc="./musify/index.png"
+        />
+      </div>
+    </section>
   </main>
 </Layout>
 
@@ -51,6 +81,7 @@ import ProjectSlide from "../components/ProjectSlide.astro";
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
   }
   .astro-a {
     position: absolute;
@@ -62,7 +93,7 @@ import ProjectSlide from "../components/ProjectSlide.astro";
     z-index: -1;
   }
   h1 {
-    font-size: 4rem;
+    font-size: 8rem;
     font-weight: 700;
     line-height: 1;
     text-align: center;
@@ -74,6 +105,17 @@ import ProjectSlide from "../components/ProjectSlide.astro";
     background-size: 400%;
     background-position: 0%;
   }
+  .header {
+    color: rgb(141, 141, 141);
+    width: 100%;
+    white-space: nowrap;
+  }
+  .about_header {
+    animation: runningText 10s linear infinite;
+  }
+  .about_article {
+    margin: 20%;
+  }
   .main-slide {
     position: absolute;
     top: 0;
@@ -83,21 +125,89 @@ import ProjectSlide from "../components/ProjectSlide.astro";
     margin: 0 auto;
     background-color: var(--accent);
   }
-  .firstname {
-    position: absolute;
-    left: 0;
-    bottom: 4rem;
-  }
+  .firstname,
   .lastname {
     position: absolute;
     left: 0;
+    transition: 0.3s;
+    user-select: none;
+  }
+  .firstname:hover,
+  .lastname:hover {
+    transform: translateY(-8px);
+  }
+  .firstname {
+    bottom: 6rem;
+  }
+  .lastname {
     bottom: 0;
   }
-  .myProjects {
+  .scroll_prompt {
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    top: 100%;
+    left: 50%;
+    top: 70%;
+    transform: translateX(-50%);
+  }
+  .arrow {
+    width: 100%;
+    height: 3rem;
+    background-color: #fff;
+    clip-path: polygon(
+      0 0,
+      0.5rem 0,
+      50% calc(100% - 0.5rem),
+      calc(100% - 0.5rem) 0,
+      100% 0,
+      50% 100%
+    );
+    animation: arrow-bobbing 4s forwards infinite ease-in-out;
+  }
+  .slides {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 103%;
+    width: 100%;
+    overflow: hidden;
+  }
+  .myProjects {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  @media (max-width: 660px) {
+    h1 {
+      font-size: 4rem;
+    }
+    .firstname {
+      bottom: 3rem;
+    }
+  }
+  @keyframes arrow-bobbing {
+    0% {
+      transform: translateY(0);
+    }
+    5% {
+      transform: translateY(0.4rem);
+    }
+    10% {
+      transform: translateY(0);
+    }
+    15% {
+      transform: translateY(0.4rem);
+    }
+    20% {
+      transform: translateY(0);
+    }
+  }
+  @keyframes runningText {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
   }
 </style>
