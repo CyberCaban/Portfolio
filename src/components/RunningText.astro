@@ -1,0 +1,38 @@
+---
+type Props = {
+  string: string;
+  repeatCount?: number;
+};
+
+const { string, repeatCount } = Astro.props;
+
+const repeat = repeatCount || 10;
+const header = Array.from(Array(repeat));
+---
+
+<h1 class="header">
+  {header.map((item) => `${string} `)}
+</h1>
+
+<style>
+  h1 {
+    font-size: 8rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+  }
+  .header {
+    color: rgb(141, 141, 141);
+    width: 100%;
+    white-space: nowrap;
+    animation: runningText 10s linear infinite;
+  }
+  @keyframes runningText {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+</style>

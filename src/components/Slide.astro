@@ -4,33 +4,22 @@ type Props = {
 };
 const { header } = Astro.props;
 
-const repeatHeader = Array.from(Array(10).keys());
+import RunningText from "./RunningText.astro";
 ---
 
-<div class=`${header}`>
-  <h1 class="header">
-    {repeatHeader.map((item) => `${header} `)}
-  </h1>
-  <article class="article">
-    <slot />
-  </article>
+<div class=`${header} slide`>
+  <RunningText string=`${header}` repeatCount={20} />
+  <article class="article"><div class="slot"><slot /></div></article>
 </div>
 
 <style>
-  h1 {
-    font-size: 8rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-  }
-  .header {
-    color: rgb(141, 141, 141);
-    width: 100%;
-    white-space: nowrap;
-    animation: runningText 10s linear infinite;
+  .slide {
+    height: 100vh;
   }
   .article {
-    margin: 20%;
+    margin: 15%;
+  }
+  .slot {
   }
   @keyframes runningText {
     from {
@@ -38,6 +27,11 @@ const repeatHeader = Array.from(Array(10).keys());
     }
     to {
       transform: translateX(-100%);
+    }
+  }
+  @keyframes scroll {
+    100% {
+      background-position: -3000px 0;
     }
   }
 </style>
