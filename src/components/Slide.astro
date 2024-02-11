@@ -9,7 +9,11 @@ import RunningText from "./RunningText.astro";
 
 <div class=`${header} slide`>
   <RunningText string=`${header}` repeatCount={20} />
-  <article class="article"><div class="slot"><slot /></div></article>
+  <article class="article">
+    <div class="slot">
+      <slot />
+    </div>
+  </article>
 </div>
 
 <style>

@@ -22,8 +22,6 @@
   .layer_2 {
     background: url(//image.ibb.co/czVo18/stars.png);
     z-index: 2;
-    /* filter: alpha(opacity=50); */
-    /* opacity: 0.5; */
     animation: 200s scroll infinite linear;
   }
   .layer_3 {
@@ -44,5 +42,15 @@
     color: rgb(218, 218, 218);
     margin: 20px;
     padding: 5rem;
+  }
+  @media (max-width: 660px) {
+    .slot {
+      padding: 2rem;
+    }
+  }
+  @media (max-width: 340px) {
+    .slot {
+      padding: 1rem;
+    }
   }
 </style>
